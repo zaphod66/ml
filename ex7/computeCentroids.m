@@ -26,21 +26,12 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-for j=1:K
-	cc = find(idx == j);
-    mc = size(cc,1);
-    sum = zeros(1,n);
-    for i=1:mc
-    %	printf("j = %d, i = %d, cc(i) = %d, idx(cc(i) = %d\n", j, i, cc(i), idx(cc(i)));
-    	sum = sum + X(cc(i), :);
-    endfor
 
-    sum = sum / mc;
 
-    for l=1:n
-        centroids(j,l) = sum(l);
-    endfor
-endfor
+
+
+
+
 
 % =============================================================
 
