@@ -63,12 +63,9 @@ for i=1:num_movies
 endfor
 
 for j=1:num_users
-	theta_sum = 0;
 	t_j = Theta(j,:);
 
-    tmp = ( ( (t_j * X')' - Y(:,j) ) .* R(:,j) )' * X;
-
-    Theta_grad(j,:) = tmp;
+    Theta_grad(j,:) = ( ( X * t_j' - Y(:,j) ) .* R(:,j) )' * X;
 endfor
 
 X_grad = X_grad + lambda * X;
