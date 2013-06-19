@@ -31,7 +31,7 @@ for i=1:K
     mc = size(cc, 1);
     sum = zeros(n, 1);
     for j = 1:mc
-        sum = sum .+ X(cc(j), :)';
+        sum = sum + X(cc(j), :)';
     endfor
     sum = sum / mc;
 
