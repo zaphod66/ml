@@ -65,13 +65,10 @@ endfor
 for j=1:num_users
 	theta_sum = 0;
 	t_j = Theta(j,:);
-    for i=1:num_movies
-    %	printf('(i,j) = (%d,%d)\n', i, j);
-        x_i = X(i,:);
-        tmp = ( ( ( t_j * x_i' ) - Y(i,j) ) * R(i,j) ) * x_i;
-        theta_sum = theta_sum + tmp;
-    endfor
-    Theta_grad(j,:) = theta_sum;
+
+    tmp = ( ( (t_j * X')' - Y(:,j) ) .* R(:,j) )' * X;
+
+    Theta_grad(j,:) = tmp;
 endfor
 
 X_grad = X_grad + lambda * X;
